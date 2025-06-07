@@ -19,11 +19,7 @@
 <ExternalCamera>
     <Provider>
         <ignore> <!-- Internal video devices to be ignored by external camera HAL -->
-            <id>13</id> <!-- No leading/trailing spaces -->
-            <id>14</id>
-            <id>15</id>
-            <id>16</id>
-            <id>19</id>
+            <id>19</id> <!-- No leading/trailing spaces -->
             <id>20</id>
             <id>21</id>
             <id>22</id>
@@ -40,8 +36,6 @@
             <id>33</id>
             <id>34</id>
             <id>35</id>
-            <id>36</id>
-            <id>37</id>
         </ignore>
     </Provider>
     <!-- See ExternalCameraUtils.cpp for default values of Device configurations below -->
