@@ -8,4 +8,12 @@
             <instance>legacy/0</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.media.c2</name>
+        <version>1</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>ffmpeg</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
