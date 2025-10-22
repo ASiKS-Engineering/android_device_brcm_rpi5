@@ -12,6 +12,7 @@ $(call inherit-product, vendor/brcm/rpi5/rpi5-vendor.mk)
 
 # APEX
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
 # API level
 PRODUCT_SHIPPING_API_LEVEL := 36
