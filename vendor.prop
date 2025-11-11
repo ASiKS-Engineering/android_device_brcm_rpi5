@@ -64,6 +64,7 @@ media.c2.hal.selection=aidl
 persist.device_config.mglru_native.lru_gen_config=core
 
 # Wifi
+ro.boot.wificountrycode=00
 wifi.interface=wlan0
 
 # Window extensions
