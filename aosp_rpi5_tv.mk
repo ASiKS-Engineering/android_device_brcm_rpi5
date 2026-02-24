@@ -7,7 +7,7 @@
 DEVICE_PATH := device/brcm/rpi5
 
 # Inherit device configuration
-$(call inherit-product, device/brcm/rpi5/device.mk)
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_CHARACTERISTICS := tv
