@@ -1,1 +1,1 @@
-Raspberry Vanilla AOSP 16 device configuration for Raspberry Pi 5.
+Raspberry Vanilla AOSP 17 device configuration for Raspberry Pi 5.
