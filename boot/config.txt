@@ -10,15 +10,16 @@ camera_auto_detect=1
 # Display
 disable_overscan=1
 
-# Display panel
-#dtoverlay=vc4-kms-dsi-7inch
-#dtoverlay=vc4-kms-dsi-ili79600-10-1inch
-#dtoverlay=vc4-kms-dsi-ili9881-5inch
-#dtoverlay=vc4-kms-dsi-ili9881-7inch
-
 # Graphics acceleration
 dtoverlay=vc4-kms-v3d
 dtoverlay=cma,cma-320
+
+# HDMI 1024x600
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt=1024 600 60 6 0 0 0
+hdmi_drive=1
+
 
 # I2C
 #dtparam=i2c_arm=on
