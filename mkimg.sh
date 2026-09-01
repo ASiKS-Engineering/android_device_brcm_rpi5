@@ -29,7 +29,19 @@ VERSION=RaspberryVanillaAOSP17
 DATE=$(date +%Y%m%d)
 TARGET=$(echo ${TARGET_PRODUCT} | sed 's/^aosp_//')
 IMGNAME=${VERSION}-${DATE}-${TARGET}.img
-IMGSIZE=15360000000
+
+# 1. Übergabeparameter auslesen (Default: 16 GB)
+TARGET_GB=${1:-16}
+
+# 2. Berechne die IMGSIZE dynamisch (Sichere Größe für SD-Karten: Wunschgröße minus 4 GB Puffer)
+# Dadurch passen die 64GB-Builds (60GB real) garantiert auf jede echte SD-Karte.
+REAL_GB=$((TARGET_GB - 4))
+if [ $REAL_GB -lt 12 ]; then
+    REAL_GB=12 # Fallback, da AOSP mindestens ~12GB benötigt
+fi
+
+# Umrechnung in Bytes für die Variable IMGSIZE
+IMGSIZE=$((${REAL_GB} * 1024 * 1024 * 1024))
 
 BOOT_PARTITION_SIZE=128
 SYSTEM_PARTITION_SIZE=3072
