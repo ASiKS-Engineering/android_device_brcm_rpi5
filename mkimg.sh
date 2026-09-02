@@ -35,7 +35,7 @@ TARGET_GB=${1:-16}
 
 # 2. Berechne die IMGSIZE dynamisch (Sichere Größe für SD-Karten: Wunschgröße minus 4 GB Puffer)
 # Dadurch passen die 64GB-Builds (60GB real) garantiert auf jede echte SD-Karte.
-REAL_GB=$((TARGET_GB - 4))
+REAL_GB=$((TARGET_GB - 8))
 if [ $REAL_GB -lt 12 ]; then
     REAL_GB=12 # Fallback, da AOSP mindestens ~12GB benötigt
 fi
