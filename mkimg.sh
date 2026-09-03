@@ -29,7 +29,7 @@ VERSION=RaspberryVanillaAOSP17
 DATE=$(date +%Y%m%d)
 TARGET=$(echo ${TARGET_PRODUCT} | sed 's/^aosp_//')
 IMGNAME=${VERSION}-${DATE}-${TARGET}.img
-BMAPNAME=${VERSION}-${DATE}-${TARGET}.bmap
+BMAPNAME=${IMGNAME}.bmap
 
 # 1. Übergabeparameter auslesen (Default: 16 GB)
 TARGET_GB=${1:-16}
