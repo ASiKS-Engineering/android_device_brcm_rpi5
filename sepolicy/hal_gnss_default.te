@@ -1,0 +1,2 @@
+# u-blox GNSS receiver connected through USB CDC ACM
+allow hal_gnss_default usb_serial_device:chr_file rw_file_perms;
