@@ -29,6 +29,7 @@ VERSION=RaspberryVanillaAOSP17
 DATE=$(date +%Y%m%d)
 TARGET=$(echo ${TARGET_PRODUCT} | sed 's/^aosp_//')
 IMGNAME=${VERSION}-${DATE}-${TARGET}.img
+BMAPNAME=${VERSION}-${DATE}-${TARGET}.bmap
 
 # 1. Übergabeparameter auslesen (Default: 16 GB)
 TARGET_GB=${1:-16}
@@ -128,4 +129,9 @@ sudo losetup -d "/dev/${LOOPDEV}"
 sudo chown ${USER}:${USER} ${ANDROID_PRODUCT_OUT}/${IMGNAME}
 
 echo "Done, created ${ANDROID_PRODUCT_OUT}/${IMGNAME}!"
+
+sudo bmaptool create ${ANDROID_PRODUCT_OUT}/${IMGNAME} > ${ANDROID_PRODUCT_OUT}/${BMAPNAME}
+sudo chown ${USER}:${USER} ${ANDROID_PRODUCT_OUT}/${BMAPNAME}
+echo "Done, created ${ANDROID_PRODUCT_OUT}/${BMAPNAME}!"
+
 exit 0
