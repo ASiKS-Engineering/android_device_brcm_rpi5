@@ -134,6 +134,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.hardware.power
 
+# GNSS
+PRODUCT_PACKAGES += \
+    com.android.hardware.gnss
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/ramdisk/fstab.rpi5:$(TARGET_COPY_OUT_RAMDISK)/fstab.rpi5 \
