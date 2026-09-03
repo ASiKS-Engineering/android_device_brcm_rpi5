@@ -19,3 +19,6 @@
 
 # USB
 /sys/class/udc/1000480000.usb  current_speed                                 0664   system     system
+
+# GNSS
+/dev/ttyACM0                                                                 0660   nobody     nobody
