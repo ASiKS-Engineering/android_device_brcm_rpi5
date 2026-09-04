@@ -1,5 +1,5 @@
 # Audio
-persist.vendor.audio.device=hdmi0
+persist.vendor.audio.device=dac
 ro.boot.audio.tinyalsa.simulate_input=true
 ro.config.media_vol_default=20
 ro.config.media_vol_steps=25
