@@ -25,7 +25,7 @@ TARGET_SCREEN_DENSITY := 160
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_KERNEL_CMDLINE := console=tty0 console=ttyAMA10,115200 androidboot.hardware=rpi5 androidboot.verifiedbootstate=orange androidboot.selinux=permissive vendor.hwc.drm.force_mode=1024x600 loglevel=7 ignore_loglevel
+BOARD_KERNEL_CMDLINE := console=tty0 console=ttyAMA10,115200 androidboot.hardware=rpi5 androidboot.verifiedbootstate=orange vendor.hwc.drm.force_mode=1024x600 loglevel=7 ignore_loglevel
 
 
 # Manifest
