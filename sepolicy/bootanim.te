@@ -1,1 +1,6 @@
 gpu_access(bootanim)
+
+# Allow the boot animation service to read custom media files from the product directory
+allow bootanim product_file:dir r_dir_perms;
+allow bootanim product_file:file r_file_perms;
+
