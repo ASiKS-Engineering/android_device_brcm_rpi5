@@ -195,3 +195,8 @@ PRODUCT_COPY_FILES += \
 
 # Camper navigator
 PRODUCT_PACKAGES += CamperNavigator
+
+# Boot animation
+PRODUCT_COPY_FILES += \
+    device/brcm/rpi5/media/bootanimation.zip:system/media/bootanimation.zip
+
