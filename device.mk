@@ -198,5 +198,8 @@ PRODUCT_PACKAGES += CamperNavigator
 
 # Boot animation
 PRODUCT_COPY_FILES += \
-    device/brcm/rpi5/media/bootanimation.zip:system/media/bootanimation.zip
+    device/brcm/rpi5/media/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+
+PRODUCT_COPY_FILES += \
+    device/brcm/rpi5/media/bootanimation-dark.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation-dark.zip
 
