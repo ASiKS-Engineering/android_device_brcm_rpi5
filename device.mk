@@ -195,7 +195,8 @@ PRODUCT_COPY_FILES += \
 
 # Camper navigator
 PRODUCT_PACKAGES += \
-	CamperNavigator
+    CamperNavigator \
+    default-permissions-com.example.campernavigator.xml
 
 # Boot animation
 PRODUCT_COPY_FILES += \
