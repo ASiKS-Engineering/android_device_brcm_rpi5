@@ -200,3 +200,9 @@ PRODUCT_PACKAGES += CamperNavigator
 PRODUCT_COPY_FILES += \
     device/brcm/rpi5/media/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 
+# Rear view camera app
+PRODUCT_PACKAGES += \
+    OpenRearViewCamera
+
+
+
