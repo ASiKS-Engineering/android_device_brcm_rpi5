@@ -21,6 +21,10 @@ $(call enforce-product-packages-exist,Bluetooth Keyguard Launcher2 OverviewApp R
 PRODUCT_PACKAGES += \
     liblargeparcelablejni
 
+# Optional Files app; its launcher icon is controlled from Developer options.
+PRODUCT_PACKAGES += \
+    DocumentsUI
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.automotive.audiocontrol-service.example
@@ -111,6 +115,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.activities_on_secondary_displays.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.activities_on_secondary_displays.xml \
     frameworks/native/data/etc/car_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/car_core_hardware.xml
+
+# OpenRearViewCamera
+PRODUCT_PACKAGES += \
+    OpenRearViewCamera \
+    privapp-permissions-com.example.openrearviewcamera.xml
 
 # Vehicle
 PRODUCT_PACKAGES += \
