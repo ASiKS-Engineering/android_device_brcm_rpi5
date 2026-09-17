@@ -198,6 +198,9 @@ PRODUCT_PACKAGES += \
     CamperNavigator \
     default-permissions-com.example.campernavigator.xml
 
+PRODUCT_COPY_FILES += \
+    device/brcm/rpi5/permissions/default-permissions-campernavigator.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-campernavigator.xml
+	
 # Boot animation
 PRODUCT_COPY_FILES += \
     device/brcm/rpi5/media/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip

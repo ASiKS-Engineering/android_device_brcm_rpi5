@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- device/brcm/rpi5/permissions/default-permissions-campernavigator.xml -->
+<default-permissions>
+    <package name="com.example.campernavigator">
+        <!-- Gewährt der App sofort bei Erst-Boot den genauen Standortzugriff -->
+        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="false" granted="true"/>
+        <permission name="android.permission.ACCESS_COARSE_LOCATION" fixed="false" granted="true"/>
+    </package>
+</default-permissions>
