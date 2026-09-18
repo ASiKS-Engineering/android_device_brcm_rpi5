@@ -198,7 +198,9 @@ PRODUCT_PACKAGES += \
     CamperNavigator
 
 PRODUCT_COPY_FILES += \
-    device/brcm/rpi5/permissions/privapp-permissions-campernavigator.xml:$(TARGET_COPY_OUT_PRODUCT)/priv-app/etc/permissions/privapp-permissions-campernavigator.xml
+    $(DEVICE_PATH)/permissions/default-permissions-campernavigator.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-campernavigator.xml \
+    $(DEVICE_PATH)/permissions/privapp-permissions-campernavigator.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-campernavigator.xml \
+    $(DEVICE_PATH)/permissions/campernavigator_whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/campernavigator_whitelist.xml
 
 # Boot animation
 PRODUCT_COPY_FILES += \
