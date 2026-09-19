@@ -194,8 +194,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
 # Camper navigator
-PRODUCT_PACKAGES += \
-    CamperNavigator
+PRODUCT_PACKAGES += CamperNavigator
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/permissions/default-permissions-campernavigator.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-campernavigator.xml \
