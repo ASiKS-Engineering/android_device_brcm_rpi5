@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-    <!-- Befreit die App von allen Batterie-Einschränkungen (Doze, App Standby) -->
+    <!-- Exempts the app from all battery restrictions (Doze, App Standby) -->
     <allow-in-power-save package="com.example.campernavigator" />
-    <!-- Erlaubt der App, im Hintergrund aktiv zu bleiben, auch wenn das Display aus ist -->
+    <!-- Allows the app to stay active in background even when display is off -->
     <allow-in-data-usage-save package="com.example.campernavigator" />
 </configuration>
