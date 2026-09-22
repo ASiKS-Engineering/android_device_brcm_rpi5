@@ -64,5 +64,8 @@ persist.device_config.mglru_native.lru_gen_config=core
 ro.boot.hypervisor.vm.supported=1
 
 # Wifi
-ro.boot.wificountrycode=00
+# "00" is the generic world regulatory domain (passive-scan only on many
+# 5GHz/DFS channels) which triggers a known CYW43455 firmware bug causing
+# repeated brcmf_run_escan error (-52). Use a real ISO country code instead.
+ro.boot.wificountrycode=DE
 wifi.interface=wlan0
