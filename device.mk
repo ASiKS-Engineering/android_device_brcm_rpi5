@@ -108,9 +108,27 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.hardware.health.rpi
 
-# Kernel
+# Hailo
+PRODUCT_PACKAGES += \
+    hailo_service \
+    hailo_service_config
+
+# One-shot boot order (Reboot to recovery: SD -> NVMe)
+PRODUCT_PACKAGES += \
+    set_reboot_order
+
+# Computer vision test app
+PRODUCT_PACKAGES += \
+    aosp-computer-vision-testapp
+
+# Kernel (image is produced from the external Raspberry Pi Linux fork)
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)-kernel/Image:$(PRODUCT_OUT)/kernel
+
+ifneq ($(wildcard $(DEVICE_PATH)-kernel/modules/hailo_pci.ko),)
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)-kernel/modules/hailo_pci.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/hailo_pci.ko
+endif
 
 # Keymint
 PRODUCT_PACKAGES += \

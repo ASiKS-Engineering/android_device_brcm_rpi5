@@ -11,6 +11,13 @@ persist.vendor.ffmpeg_codec2.rank.audio  u:object_r:vendor_ffmpeg_config_prop:s0
 persist.vendor.ffmpeg_codec2.rank.video  u:object_r:vendor_ffmpeg_config_prop:s0
 persist.vendor.ffmpeg_codec2.v4l2.h265   u:object_r:vendor_ffmpeg_config_prop:s0
 
+# Hailo
+persist.vendor.hailo.enabled     u:object_r:vendor_hailo_config_prop:s0
+persist.vendor.hailo.config      u:object_r:vendor_hailo_config_prop:s0
+persist.vendor.hailo.model_path  u:object_r:vendor_hailo_config_prop:s0
+vendor.hailo.status              u:object_r:vendor_hailo_config_prop:s0
+vendor.hailo.rt_status           u:object_r:vendor_hailo_config_prop:s0
+
 # Graphics
 vendor.hwc.drm.ctm         u:object_r:vendor_hwc_config_prop:s0
 vendor.hwc.drm.force_mode  u:object_r:vendor_hwc_config_prop:s0

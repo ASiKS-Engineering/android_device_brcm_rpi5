@@ -1,2 +1,10 @@
+type hailo_data_file, file_type, data_file_type;
+type hailo_device, dev_type;
+type hailo_service_exec, vendor_file_type, exec_type, file_type;
+type hailo_vendor_configs_file, vendor_file_type, file_type;
+
+type vcio_device, dev_type;
+type set_reboot_order_exec, vendor_file_type, exec_type, file_type;
+
 type mediadrm_vendor_data_file, file_type, data_file_type;
 type sysfs_hdmi, fs_type, sysfs_type;

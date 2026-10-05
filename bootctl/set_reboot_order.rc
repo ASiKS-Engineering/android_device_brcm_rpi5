@@ -1,0 +1,13 @@
+# One-shot boot order SD -> NVMe ("Reboot to recovery").
+#
+# PowerManager.reboot("rpi_recovery") makes system_server set sys.powerctl=reboot,rpi_recovery.
+# During the init shutdown sequence the tryboot flag is armed synchronously, before the kernel
+# reboot is issued. The bootloader EEPROM [tryboot] section then selects SD -> NVMe.
+service vendor.set_reboot_order_sd /vendor/bin/set_reboot_order sd_nvme
+    user root
+    group root
+    disabled
+    oneshot
+
+on shutdown && property:sys.powerctl=reboot,rpi_recovery
+    exec_start vendor.set_reboot_order_sd

@@ -1,0 +1,11 @@
+cc_binary {
+    name: "set_reboot_order",
+    vendor: true,
+    srcs: ["set_reboot_order.c"],
+    shared_libs: ["liblog"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    init_rc: ["set_reboot_order.rc"],
+}

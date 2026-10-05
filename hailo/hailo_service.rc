@@ -1,0 +1,20 @@
+# Load the kernel driver on every boot so /dev/hailo0 is available independent of the
+# service switch. /vendor is mounted at this point, so the driver can request its firmware.
+on boot
+    insmod /vendor/lib/modules/hailo_pci.ko
+
+on post-fs-data
+    mkdir /data/vendor/hailo 0770 system system
+
+service vendor.hailo_service /vendor/bin/hailo_service
+    class late_start
+    disabled
+    user root
+    group root system camera input
+    setenv HAILORT_LOGGER_PATH /data/vendor/hailo
+
+on property:persist.vendor.hailo.enabled=1
+    start vendor.hailo_service
+
+on property:persist.vendor.hailo.enabled=0
+    stop vendor.hailo_service

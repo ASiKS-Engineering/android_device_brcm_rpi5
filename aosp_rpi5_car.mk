@@ -8,6 +8,7 @@ DEVICE_PATH := device/brcm/rpi5
 
 # Inherit device configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
+$(call inherit-product-if-exists, vendor/brcm/rpi5/rpi5-vendor.mk)
 
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi

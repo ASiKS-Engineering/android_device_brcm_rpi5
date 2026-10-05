@@ -5,8 +5,18 @@
 # DRM
 /data/vendor/mediadrm(/.*)?  u:object_r:mediadrm_vendor_data_file:s0
 
+# Hailo
+/dev/hailo[0-9]+             u:object_r:hailo_device:s0
+/data/vendor/hailo(/.*)?     u:object_r:hailo_data_file:s0
+/vendor/bin/hailo_service    u:object_r:hailo_service_exec:s0
+/vendor/etc/hailo(/.*)?      u:object_r:hailo_vendor_configs_file:s0
+
 # Graphics
 /dev/dri(/.*)?  u:object_r:gpu_device:s0
+
+# Boot order (one-shot tryboot via VideoCore mailbox)
+/dev/vcio                    u:object_r:vcio_device:s0
+/vendor/bin/set_reboot_order u:object_r:set_reboot_order_exec:s0
 
 # Partitions
 /dev/block/mmcblk0p1  u:object_r:boot_block_device:s0

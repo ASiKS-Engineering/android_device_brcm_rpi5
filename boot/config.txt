@@ -32,6 +32,10 @@ dtoverlay=hifiberry-dac8x
 # SPI
 #dtparam=spi=on
 
+# PCIe
+dtparam=pciex1
+dtparam=pciex1_gen=2
+
 # USB
 dtoverlay=dwc2,dr_mode=peripheral
 [cm5]

@@ -22,3 +22,7 @@
 
 # GNSS
 /dev/ttyACM0                                                                 0660   nobody     nobody
+
+# Hailo AI accelerator
+/dev/hailo*                                                                  0660   system     system
+

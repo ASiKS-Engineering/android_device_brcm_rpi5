@@ -1,0 +1,19 @@
+cc_binary {
+    name: "hailo_service",
+    vendor: true,
+    srcs: ["hailo_service.c"],
+    shared_libs: ["liblog"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    init_rc: ["hailo_service.rc"],
+}
+
+prebuilt_etc {
+    name: "hailo_service_config",
+    vendor: true,
+    src: "hailo_service.conf",
+    sub_dir: "hailo",
+    filename_from_src: true,
+}

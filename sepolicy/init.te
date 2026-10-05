@@ -1,2 +1,4 @@
 allow init kernel:system module_request;
+allow init vendor_file:system module_load;
+allow init hailo_data_file:dir create_dir_perms;
 allow init tmpfs:lnk_file create;

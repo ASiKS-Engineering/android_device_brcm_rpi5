@@ -58,9 +58,13 @@ TARGET_NO_RECOVERY := true
 # SELinux
 BOARD_SEPOLICY_DIRS += device/brcm/rpi5/sepolicy
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+# Hailo driver uses request_firmware_direct(); point the kernel at /vendor/firmware
+BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware
 
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
+
+-include vendor/brcm/rpi5/BoardConfigVendor.mk
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
