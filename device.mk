@@ -117,10 +117,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     set_reboot_order
 
-# Computer vision test app
-PRODUCT_PACKAGES += \
-    aosp-computer-vision-testapp
-
 # Kernel (image is produced from the external Raspberry Pi Linux fork)
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)-kernel/Image:$(PRODUCT_OUT)/kernel
