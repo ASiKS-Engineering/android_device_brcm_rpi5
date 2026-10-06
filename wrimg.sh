@@ -50,7 +50,7 @@ check_device() {
 }
 
 find_device() {
-  for SDX in "sda" "sdb" "sdc" "sdd" "sde" "sdf"; do
+  for SDX in "sda" "sdb" "sdc" "sdd" "sde" "sdf" "nvme0n1"; do
     check_device ${SDX}
     if [ $? == "0" ]; then
       break
