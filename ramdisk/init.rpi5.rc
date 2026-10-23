@@ -2,6 +2,8 @@ import /vendor/etc/init/hw/init.${ro.hardware}.usb.rc
 
 on init
     symlink /sdcard /storage/sdcard0
+    # Mesa v3d keeps one mmap per GL buffer; MapLibre can exceed the default 65530 mappings and abort in the driver.
+    write /proc/sys/vm/max_map_count 262144
 
 on fs
     mount_all /vendor/etc/fstab.${ro.hardware} --early
