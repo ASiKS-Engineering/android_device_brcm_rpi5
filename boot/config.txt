@@ -34,7 +34,19 @@ dtoverlay=hifiberry-dac8x
 
 # PCIe
 dtparam=pciex1
-dtparam=pciex1_gen=2
+
+# NVMe in external PCIe connector
+dtoverlay=android-nvme
+
+#dtparam=pciex1_gen=2
+dtparam=pciex1_gen=3
+
+# compatibility fix for seeedStudio PCIe3.0 to dual M.2 hat
+dtoverlay=pciex1-compat-pi5,no-mip,mmio-hi
+
+# Set reset time (e.g. Pimoroni NVMe Base Duo has a PCIe switch that needs a longer reset time)
+dtparam=pcie_tperst_clk_ms=250
+
 
 # USB
 dtoverlay=dwc2,dr_mode=peripheral
