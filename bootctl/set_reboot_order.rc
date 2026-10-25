@@ -11,3 +11,7 @@ service vendor.set_reboot_order_sd /vendor/bin/set_reboot_order sd_nvme
 
 on shutdown && property:sys.powerctl=reboot,rpi_recovery
     exec_start vendor.set_reboot_order_sd
+
+# Standard recovery reboot (adb reboot recovery, PowerManager.reboot("recovery")) goes to TWRP too.
+on shutdown && property:sys.powerctl=reboot,recovery
+    exec_start vendor.set_reboot_order_sd
