@@ -20,8 +20,8 @@
 # USB
 /sys/class/udc/1000480000.usb  current_speed                                 0664   system     system
 
-# GNSS
-/dev/ttyACM0                                                                 0660   nobody     nobody
+# GNSS (USB receiver; the node number changes when it is re-plugged)
+/dev/ttyACM*                                                                 0660   nobody     nobody
 
 # Hailo AI accelerator
 /dev/hailo*                                                                  0660   system     system
