@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/brcm/rpi5
 
+# Pre-authorized ADB host key (public key only), effective in eng/userdebug builds
+PRODUCT_ADB_KEYS := $(DEVICE_PATH)/adb_keys
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
 
