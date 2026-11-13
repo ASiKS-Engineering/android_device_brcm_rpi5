@@ -146,8 +146,12 @@ The kernel module is loaded at boot (`on boot` in `hailo_service.rc`). `hailo_se
 `/dev/hailo0` via ioctl and publishes its state in `vendor.hailo.status`
 (`starting`, `fw_missing`, `waiting_device`, `fw_not_loaded`, `error`, `ready`, `stopped`).
 
-`libhailort.so` is meant to be built with `proprietary_vendor_brcm/rpi5/tools/build_hailort_android.sh` (Android NDK, run
-on Linux/WSL2; this script does not exist yet) and packaged to `/vendor/lib64` by `rpi5-vendor.mk` when present. `hailo_service` loads it with `dlopen`
+`libhailort.so` (HailoRT 4.24.0, NDK r27c, API 34) is built with `proprietary_vendor_brcm/rpi5/tools/build_hailort_android.sh`
+(run on Linux/WSL2 with `AOSP_TOP` pointing at the AOSP checkout, which provides CMake, Ninja and a host clang). The
+result is written to `proprietary/vendor/lib64/` (git-ignored) and packaged to `/vendor/lib64` by `rpi5-vendor.mk` when
+present. It only links against libc, libm, libdl and liblog, so it is allowed in `/vendor`. It was verified on the device:
+vdevice creation, `hailo_identify` (firmware 4.24.0) and configuring a Model Zoo HEF all succeed.
+`hailo_service` loads it with `dlopen`
 after the driver reports ready, creates a vdevice, configures `default.hef` (fetch with `fetch_hailo_model.ps1 -Url <hef-url>`; the HEF must match HailoRT 4.24) and
 publishes the outcome in `vendor.hailo.rt_status` (`ok`, `lib_missing`, `lib_error`, `device_error`, `model_missing`,
 `model_error`). Because of the `dlopen`, the image builds and boots without the library.
