@@ -1,0 +1,20 @@
+# Vendor daemon that supervises the Hailo-8 accelerator (/vendor/bin/hailo_service).
+type hailo_service, domain;
+init_daemon_domain(hailo_service)
+
+# Hailo PCIe character device (ioctl + vdma mmap)
+allow hailo_service hailo_device:chr_file rw_file_perms;
+
+# Config, firmware, models and HailoRT (dlopen from /vendor/lib64)
+allow hailo_service hailo_vendor_configs_file:dir r_dir_perms;
+allow hailo_service hailo_vendor_configs_file:file r_file_perms;
+r_dir_file(hailo_service, vendor_file)
+allow hailo_service vendor_file:file { execute map };
+
+# HAILORT_LOGGER_PATH=/data/vendor/hailo
+allow hailo_service hailo_data_file:dir create_dir_perms;
+allow hailo_service hailo_data_file:file create_file_perms;
+
+# Publish vendor.hailo.status / vendor.hailo.rt_status, read persist.vendor.hailo.*
+set_prop(hailo_service, vendor_hailo_config_prop)
+get_prop(hailo_service, vendor_hailo_config_prop)

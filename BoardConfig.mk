@@ -61,6 +61,12 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # Hailo driver uses request_firmware_direct(); point the kernel at /vendor/firmware
 BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware
 
+# Hailo PCIe driver; installed to /vendor/lib/modules and loaded by hailo_service.rc.
+# An ELF module cannot go through PRODUCT_COPY_FILES.
+ifneq ($(wildcard $(DEVICE_PATH)-kernel/modules/hailo_pci.ko),)
+BOARD_VENDOR_KERNEL_MODULES += $(DEVICE_PATH)-kernel/modules/hailo_pci.ko
+endif
+
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
 

@@ -136,15 +136,19 @@ Expected Hailo-8 firmware files from the imported kernel driver:
 
 `hailo8_fw.bin` is mandatory; the other two are optional. Fetch it with
 `proprietary_vendor_brcm/rpi5/tools/fetch_hailo_firmware.ps1` (default version 4.24.0, SHA256 verified).
-`rpi5-vendor.mk` packages whichever of these files exist.
+`rpi5-vendor.mk` packages whichever of these files exist. Firmware, HEF models and `libhailort.so` are git-ignored in
+`proprietary_vendor_brcm`, so run the fetch script again in every fresh checkout.
+
+The matching `hailo_pci.ko` must come from the same kernel build as `Image`: export the kernel artifacts (all modules,
+DTBs, overlays) with `tools/rpi/export_android_rpi5_kernel.sh`, otherwise the module version check rejects the modules.
 
 The kernel module is loaded at boot (`on boot` in `hailo_service.rc`). `hailo_service` probes
 `/dev/hailo0` via ioctl and publishes its state in `vendor.hailo.status`
 (`starting`, `fw_missing`, `waiting_device`, `fw_not_loaded`, `error`, `ready`, `stopped`).
 
-`libhailort.so` is built with `proprietary_vendor_brcm/rpi5/tools/build_hailort_android.sh` (Android NDK, run on
-Linux/WSL2) and packaged to `/vendor/lib64` by `rpi5-vendor.mk` when present. `hailo_service` loads it with `dlopen`
-after the driver reports ready, creates a vdevice, configures `default.hef` (fetch with `fetch_hailo_model.ps1`) and
+`libhailort.so` is meant to be built with `proprietary_vendor_brcm/rpi5/tools/build_hailort_android.sh` (Android NDK, run
+on Linux/WSL2; this script does not exist yet) and packaged to `/vendor/lib64` by `rpi5-vendor.mk` when present. `hailo_service` loads it with `dlopen`
+after the driver reports ready, creates a vdevice, configures `default.hef` (fetch with `fetch_hailo_model.ps1 -Url <hef-url>`; the HEF must match HailoRT 4.24) and
 publishes the outcome in `vendor.hailo.rt_status` (`ok`, `lib_missing`, `lib_error`, `device_error`, `model_missing`,
 `model_error`). Because of the `dlopen`, the image builds and boots without the library.
 
